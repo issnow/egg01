@@ -23,6 +23,18 @@ module.exports = appInfo => {
     // myAppName: 'egg',
   };
 
+  config.view = {
+    mapping: {
+      '.html': 'ejs',
+    },
+  };
+  config.api = 'www.baidu.com';
+  config.security = {
+    csrf: {
+      enable: false,
+    },
+  };
+
   return {
     ...config,
     ...userConfig,
