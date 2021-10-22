@@ -77,6 +77,13 @@ class UserService extends Service {
     const str = 'select * from user';
     return await this.app.mysql.query(str);
   }
+
+  async list() {
+    return this.ctx.model.User.findAll({
+      limit: 10,
+      offset: 0,
+    });
+  }
 }
 
 module.exports = UserService;

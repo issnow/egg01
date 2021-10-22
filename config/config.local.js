@@ -13,7 +13,7 @@ exports.mysql = {
     password: '000000',
     // 数据库名
     database: 'book',
-    debug: true,
+    // debug: true,
   },
   // 是否加载到 app 上，默认开启
   app: true,
