@@ -1,7 +1,7 @@
 /*
  * @Author: fucheng
  * @Date: 2021-10-18 11:39:39
- * @LastEditTime: 2021-10-22 15:42:03
+ * @LastEditTime: 2021-10-26 16:49:43
  * @LastEditors: fucheng
  * @Description:config
  */
@@ -23,7 +23,15 @@ module.exports = appInfo => {
   config.keys = appInfo.name + '_1634528369280_2621';
 
   // add your middleware config here
-  config.middleware = [ 'errorHandler' ];
+  config.middleware = [ 'errorHandler', 'log' ];
+  config.log = {
+    enable: true,
+    match(ctx) {
+      const reg = /user2/i;
+      const url = ctx.request.url;
+      return reg.test(url);
+    },
+  };
 
   // add your user config here
   const userConfig = {

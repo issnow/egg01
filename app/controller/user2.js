@@ -1,7 +1,7 @@
 /*
  * @Author: fucheng
  * @Date: 2021-10-20 11:44:20
- * @LastEditTime: 2021-10-22 15:38:18
+ * @LastEditTime: 2021-10-26 16:58:23
  * @LastEditors: fucheng
  * @Description: controller基本使用
  */
@@ -16,13 +16,14 @@ class User2Controller extends Controller {
   async queryAll() {
 
     // *参数验证
-    this.ctx.validate({
-      pageSize: { type: 'number', required: true, desc: '每页size' },
-      pageNum: { type: 'number', required: true, desc: '页码' },
-      keyword: { type: 'string', required: true, desc: '关键词' },
-    });
+    // this.ctx.validate({
+    //   pageSize: { type: 'number', required: true, desc: '每页size' },
+    //   pageNum: { type: 'number', required: true, desc: '页码' },
+    //   keyword: { type: 'string', required: true, desc: '关键词' },
+    // });
 
     // console.log('---ctx', this.ctx);
+    // console.log('---ip', this.ctx.ip);
     // *获取query参数
     // console.log('---query', this.ctx.query);
 
@@ -34,6 +35,7 @@ class User2Controller extends Controller {
     // console.log('---app', this.ctx.app);
     // console.log('---helper', this.ctx.helper.fn());
     // console.log('---helper2', this.ctx.helper);
+    this.ctx.status = 200;
     this.ctx.body = await this.ctx.service.user2.queryAll();
   }
   async queryOne() {
@@ -41,7 +43,7 @@ class User2Controller extends Controller {
     // this.ctx.throw(500, '故意出错');
 
     // *获取header参数
-    console.log('---header', this.ctx.header);
+    // console.log('---header', this.ctx.header);
 
     // *获取header的字段，通过ctx.get(name)
     // const contentType = this.ctx.get('content-type');
